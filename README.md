@@ -1,146 +1,168 @@
-[Leads Generator](https://apify.com/boneswill/leads-generator?fpr=data)
+[Leads Generator](https://apify.com/kenny256/leads-generator?fpr=data)
 
-## 🔥 LEADS FINDER (EMAILS GUARANTEED)
+# B2B Leads Generator 🎯
 
-A cost-effective alternative to Apollo, Lusha & ZoomInfo. Get verified B2B emails, LinkedIn profiles, and rich firmographics at scale.
+Generate high-quality B2B leads from multiple platforms including GitHub, Dev.to, Reddit, HackerNews, and Product Hunt.
 
-## 🔥 New Updates?
+## Features ✨
 
-- Work emails (90% coverage)
-- Phone number coverage (20% - 30%)
-- Personal emails (40% coverage)
+- **Multi-Platform Scraping**: GitHub, Dev.to, Reddit, HackerNews, Product Hunt
+- **Smart Lead Scoring**: Automatic scoring based on engagement and profile quality
+- **Deduplication**: Automatically removes duplicate leads
+- **Rich Data**: Collects names, emails (when public), social profiles, and more
+- **Customizable**: Filter by keywords and target specific lead types
 
-## 🔥 WHY CHOOSE THIS ACTOR
+## Platforms Supported 🌐
 
-- **Email Enrichment**: Get up to 90% of leads with emails included.
-- **Progress Tracking**: The Actor remembers your last run and skips leads you’ve already fetched.
-- **Powerful Filters** to refine your search and find the leads you need.
-- **Fetch Up to 30K Leads, including emails.**
-- **Linked URLs** available for both individuals and their organizations.
-- **Market-Ready Data**: Perfect for building databases for lead generation, competitive analysis, and
+### 1. GitHub
 
-## 🚀 HOW TO USE THE ACTOR
+- Developer profiles
+- Public emails (when available)
+- Company information
+- Location data
+- Social links
 
-- Open the actor.
-- Choose your filters (e.g, 👔 Job Title = "Marketing Manager", 🌍 Location = "United State").
-- Set #️⃣ Number of leads to fetch (default 10,000; leave empty to fetch all that match).
-- Click Run. When finished, download results from the Dataset tab or use the Overview table.
+### 2. Dev.to
 
-🤝 **Support**: [boneswill697@gmail.com](mailto:boneswill697@gmail.com)
+- Developer profiles
+- Article authors
+- Tags and interests
 
-## 🚀 PRO TIPS FOR EFFECTIVE SCRAPING
+### 3. Reddit
 
-- **Start with Fewer Filters**: Begin with 2–3 essential filters and add more gradually
-- **Broaden the Location**: Try searching by country instead of state if you're not getting matches
-- **Remove strict filters**: Avoid strict filters like Company Domain or Departments if you're getting no results
-- **Check for Typos**: Ensure spelling is correct as small typos can yield zero results
-- **Save high performing Searches**: When a search gives good results, save it for future use or reference
-- If the scraper fails before scraping all leads, check the **Logs** for detailed report or open an issue
+- Post authors from relevant subreddits
+- Karma scores
+- Community engagement
 
-## PROGRESS TRACKING
+### 4. HackerNews
 
-By default, the actor automatically keeps track of your progress for each Filter you provide. So, if you give it exact same Filter again or resurrect run, it doesn't start all over from first page, instead, it picks up right where you left off and continues scraping from the last page it reached.
+- Active community members
+- Engagement metrics
+- Post history
 
-This behavior remains consistent, even if you're running the actor multiple times. The progress tracking is stored for **30 days**, after which it resets automatically.
+### 5. Product Hunt (Coming Soon)
 
-⚠️ **Note**: Aborting a run could disrupt the accuracy of your progress tracking.
+- Product makers
+- Founders
+- Early adopters
 
-## 💰 RUN POLICY
-
-**Minimum Charge**: Each run requires a minimum of 100 leads. If fewer than 100 are found, you'll still be charged for 100. To avoid this, make sure you use filters that are not too narrow.
-
-**Paid Apify User**: As low as $1 for every 1k leads the Actor finds. Check [Pricing](https://apify.com/pricing) to learn more.
-
-**Free Apify User Limit**: Free users can extract only 100 leads. The rate is $2/1k leads. Upgrade to paid Apify plan to enjoy premium features.
-
-**Timeout**: It takes 5 mins to pull 1k leads. Configure your run limit accordingly.
-
-### 🧾 SAMPLE INPUT
-
-If you need assistance using it via API please contact support
+## Input Configuration 📝
 
 ```
 {
-  "firstName": "kate",
-  "lastName": "Spencer",
-  "personTitle": [
-    "CEO",
-    "Founder"
-  ],
-  "seniority": [
-    "Founder",
-    "Chairman",
-    "President",
-    "CEO"
-  ],
-  "functional": [
-    "Admin",
-    "Analytics",
-    "Applications"
-  ],
-  "companyEmployeeSize": [
-    "0 - 1",
-    "2 - 10",
-    "11 - 50",
-    "5001 - 10000",
-    "10000+"
-  ],
-  "personCountry": [
-    "United States"
-  ],
-  "personState": [
-    "California"
-  ],
-  "contactEmailStatus": "verified",
-  "companyCountry": [
-    "United States"
-  ],
-  "companyState": [
-    "California"
-  ],
-  "companyDomain": [
-    "apify.com",
-    "github.com"
-  ],
-  "industry": [
-    "Public Safety",
-    "Hospitality"
-  ],
-  "industryKeywords": [
-    "AI"
-  ],
-  "revenue": [
-    "< 1M",
-    "1M-10M",
-    "11M-100M",
-    "101M-500M",
-    "501M-1B",
-    "1B+"
-  ],
-  "businessModel": [
-    "Product",
-    "Services",
-    "Solutions"
-  ],
-  "totalResults": 30000,
-  "includeEmails": true
+  "platforms": ["github", "devto", "reddit", "hackernews"],
+  "keywords": ["startup", "founder", "machine learning", "saas"],
+  "maxLeads": 500,
+  "leadType": "tech"
 }
 ```
 
-## 📦 SAMPLE OUTPUT
+### Parameters
 
-Each scraped lead is saved in a well-structured format in the Apify dataset.
+- **platforms** (array): Platforms to scrape
+- **keywords** (array): Keywords to search for
+- **maxLeads** (number): Maximum leads to collect (default: 500)
+- **leadType** (string): Type of leads - "tech", "business", or "general"
 
-## ⚠️ DISCLAIMER
+## Output Format 📊
 
-While the actor does its best to retrieve email addresses for each lead, some leads may not include an email due to data availability.
+Each lead contains:
 
-Use responsibly and in compliance with all applicable laws, regulations, and governing policies. We assume no liability for misuse/abuse.
+```
+{
+  "lead_id": "github_12345",
+  "source": "github",
+  "name": "John Doe",
+  "username": "johndoe",
+  "profile_url": "https://github.com/johndoe",
+  "email": "john@example.com",
+  "company": "Tech Startup Inc",
+  "location": "San Francisco, CA",
+  "bio": "Full-stack developer passionate about AI",
+  "website": "https://johndoe.com",
+  "social_links": {
+    "github": "https://github.com/johndoe",
+    "twitter": "https://twitter.com/johndoe"
+  },
+  "metadata": {
+    "followers": 1234,
+    "public_repos": 56
+  },
+  "lead_score": 8,
+  "keyword": "machine learning",
+  "scraped_at": "2025-01-12T10:30:00.000Z"
+}
+```
 
-## 🤝 SUPPORT
+## Lead Scoring 📈
 
-Need help? Contact us directly at **[boneswill697@gmail.com](mailto:boneswill697@gmail.com)** or open an issue on the "Issues" tab.
+Leads are automatically scored from 1-10 based on:
 
-Need a custom scraper? please Contact us today.
+- **Profile completeness** (email, location, bio, website)
+- **Engagement metrics** (followers, repos, karma, points)
+- **Activity level** (recent posts, contributions)
+- **Professional indicators** (company affiliation, public work)
 
----
+## Use Cases 💡
+
+- **Developer Outreach**: Find developers for your product
+- **Recruiting**: Source technical talent
+- **Partnership Building**: Connect with founders and makers
+- **Market Research**: Understand your target audience
+- **Community Building**: Grow your developer community
+
+## Legal & Ethical Use ⚖️
+
+This actor only collects **publicly available information** from platforms' public APIs and pages.
+
+**Important Guidelines:**
+
+- ✅ Use for legitimate business purposes
+- ✅ Respect platform rate limits
+- ✅ Only contact leads with permission
+- ❌ Don't spam or harass
+- ❌ Don't violate platform Terms of Service
+- ❌ Don't sell or misuse personal data
+
+## Running Locally 🏃
+
+```
+# Install dependencies
+npm install
+
+# Run the actor
+npm start
+```
+
+## Deploying to Apify 🚀
+
+```
+# Login to Apify
+apify login
+
+# Deploy
+apify push
+```
+
+## Tips for Best Results 💪
+
+1. **Use Specific Keywords**: Instead of "developer", try "react developer" or "machine learning engineer"
+2. **Combine Platforms**: Different platforms attract different audiences
+3. **Quality Over Quantity**: Start with lower maxLeads to get higher quality
+4. **Regular Updates**: Run periodically to find new leads
+5. **Enrich Data**: Use additional tools to find email addresses for leads without public emails
+
+## Limitations ⚠️
+
+- Email addresses are only collected when publicly available
+- Rate limits may affect the number of leads collected
+- Some platforms require proxies for reliable scraping
+- LinkedIn and Facebook are NOT supported due to their strict anti-scraping policies
+
+## Support 🤝
+
+For issues or questions, please open an issue on GitHub or contact support.
+
+## License 📄
+
+ISC License - Free to use and modify.
